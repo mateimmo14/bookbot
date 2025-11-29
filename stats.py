@@ -12,15 +12,20 @@ def count_words(book_text):
 
 def count_characters(book_text):
     counts = []
+
     for word in book_text:
         for letter in word:
             if letter.isalpha():
+                letter = letter.lower()  # treat 'A' and 'a' as the same
+
                 for entry in counts:
                     if entry["letter"] == letter:
                         entry["num"] += 1
                         break
                 else:
+                    # this runs only if we DIDN'T break: letter not found
                     counts.append({"letter": letter, "num": 1})
+
     return counts
 
 

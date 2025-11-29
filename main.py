@@ -12,8 +12,14 @@ def main():
     book_text = get_book_text(path)
     dictionary = count_characters(book_text)
     dictionary.sort(key=sort_on, reverse=True)
-    print(dictionary)
-
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {path}...")
+    print("----------- Word Count ----------")
+    count_words(book_text)
+    print("--------- Character Count -------")
+    for set in dictionary:
+        print(f"{set['letter']}: {set['num']}")
+    print("============= END ===============")
     return
 
 

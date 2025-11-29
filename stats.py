@@ -11,13 +11,18 @@ def count_words(book_text):
 
 
 def count_characters(book_text):
-    counts = {}
-    book_text = book_text.lower()
+    counts = []
     for word in book_text:
         for letter in word:
-            if letter.isalpha() == True:
-                if letter not in counts:
-                    counts[letter] = 1
+            if letter.isalpha():
+                for entry in counts:
+                    if entry["letter"] == letter:
+                        entry["num"] += 1
+                        break
                 else:
-                    counts[letter] += 1
+                    counts.append({"letter": letter, "num": 1})
     return counts
+
+
+def sort_on(items):
+    return items["num"]

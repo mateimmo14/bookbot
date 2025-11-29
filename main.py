@@ -1,4 +1,4 @@
-from stats import count_characters, count_words
+from stats import count_characters, count_words, sort_on
 
 
 def get_book_text(filepath):
@@ -8,10 +8,11 @@ def get_book_text(filepath):
 
 
 def main():
-    book_text = get_book_text("books/frankenstein.txt")
-    count_words(book_text)
-    char_counte = count_characters(book_text)
-    print(char_counte)
+    path = "books/frankenstein.txt"
+    book_text = get_book_text(path)
+    dictionary = count_characters(book_text)
+    dictionary.sort(key=sort_on, reverse=True)
+    print(dictionary)
 
     return
 
